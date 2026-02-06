@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Animal Hangman</title>
+  <link rel="stylesheet" href="/static/style.css"/>
+</head>
+<body>
+  <div class="bg"></div>
+
+  <main class="wrap">
+    <header class="top">
+      <div>
+        <h1>🐾 Animal Hangman</h1>
+        <p class="sub">Words from animals.txt | Image shows immediately | Hint letter 2x/word</p>
+      </div>
+      <div class="actions">
+        <button id="btnStart" class="btn primary">Start</button>
+        <button id="btnReset" class="btn ghost">Reset</button>
+      </div>
+    </header>
+
+    <section class="panel">
+      <div class="stats">
+        <div class="pill"><span>Stage</span><b id="stage">-</b></div>
+        <div class="pill"><span>Length</span><b id="length">-</b></div>
+        <div class="pill"><span>Life</span><b id="life">-</b></div>
+        <div class="pill"><span>Wrong</span><b id="wrongCount">-</b></div>
+        <div class="pill"><span>Hint</span><b id="hintCount">-</b></div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <div class="title">Word</div>
+          <div class="word" id="masked">_ _ _ _</div>
+        </div>
+
+        <div class="card">
+          <div class="title">Image hint</div>
+          <div class="imgWrap">
+            <img id="img" alt="animal hint" referrerpolicy="no-referrer"/>
+            <div class="tiny" id="imgNote"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="inputBox">
+          <input id="guess" maxlength="1" placeholder="a" autocomplete="off"/>
+          <button id="btnGuess" class="btn">Guess</button>
+          <button id="btnHintLetter" class="btn">Hint Letter (-2)</button>
+        </div>
+
+        <div class="wrongBox">
+          <div class="title">Wrong letters</div>
+          <div id="wrongLetters" class="chips"></div>
+        </div>
+      </div>
+
+      <div class="msg" id="message">Click Start.</div>
+
+      <div class="card reveal" style="margin-top:12px;">
+        <div class="title">Last revealed (after clear / game over)</div>
+        <div class="revealLine"><span class="tag">EN</span><b id="lastEn">-</b></div>
+        <div class="revealLine"><span class="tag">TH</span><b id="lastTh">-</b></div>
+        <div class="title" style="margin-top:10px;">What is it?</div>
+        <div class="tiny">EN</div>
+        <div id="aboutEn" style="margin:6px 0 10px;">-</div>
+        <div class="tiny">TH</div>
+        <div id="aboutTh">-</div>
+      </div>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
